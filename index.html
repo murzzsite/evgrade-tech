@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EvGrade Tech — ИИ-разбор звонков и переписок для отдела продаж</title>
+<meta name="description" content="EvGrade Tech анализирует звонки и переписки, находит упущенные продажи, подсказывает менеджеру, что сделать, и автоматически заполняет CRM. Бесплатный Zoom-разбор: подберём из 316 механик те, что подходят вашему бизнесу.">
+<meta property="og:title" content="EvGrade Tech — где вы теряете клиентов в звонках">
+<meta property="og:description" content="ИИ слушает все звонки, находит упущенные продажи и подсказывает, что сделать. Бесплатный Zoom-разбор на 30–40 минут.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#EEF1EC">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23E6F25A'/%3E%3Cpath d='M5 16h2v0M9 12h3v8H9zM14 7h3v18h-3zM19 11h3v10h-3zM24 14h3v4h-3z' fill='%23111A22'/%3E%3C/svg%3E">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@400;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"}}</script>
+</head>
+<body>
+
+<header class="header" id="header">
+  <div class="header__inner">
+    <a class="logo" href="#top" aria-label="EvGrade Tech, на главную"><svg viewBox="0 0 28 20" aria-hidden="true"><path d="M2 8h3v4H2zM8 4h3v12H8zM14 1h3v18h-3zM20 5h3v10h-3z"/></svg><span>EvGrade<b>Tech</b></span></a>
+    <nav class="nav" id="nav" aria-label="Разделы">
+      <a href="#pains">Где теряются продажи</a>
+      <a href="#how">Как работает</a>
+      <a href="#results">Результаты</a>
+      <a href="#map">316 механик</a>
+      <a href="#price">Стоимость</a>
+      <a href="#faq">Вопросы</a>
+    </nav>
+    <a class="btn btn--small header__cta" href="#contact"><span>Бесплатный разбор</span></a>
+    <button class="burger" id="burger" aria-label="Меню" aria-expanded="false"><i></i><i></i></button>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero__text">
+    <h1 class="hero__title" data-split>Где вы теряете клиентов в звонках</h1>
+    <p class="hero__lead">EvGrade Tech: ИИ слушает все звонки и читает переписки отдела продаж, находит упущенные продажи и подсказывает менеджеру, что сделать. Он же заполняет CRM за людей.</p>
+    <div class="hero__actions">
+      <a class="btn" href="#contact" data-magnet><span>Получить бесплатный разбор</span></a>
+      <a class="textlink" href="#how">Как это работает</a>
+    </div>
+    <p class="hero__proof">Резидент «Сколково», аккредитованная ИТ-компания. Работаем по России и СНГ.</p>
+  </div>
+  <div class="hero__stage" id="stage" aria-hidden="true">
+    <canvas id="wave"></canvas>
+    <svg class="wave-fallback" id="waveFallback" viewBox="0 0 600 360" preserveAspectRatio="xMidYMid meet"></svg>
+    <span class="tag tag--red" data-tag="0">Потребность не выяснена</span>
+    <span class="tag tag--red" data-tag="1">Возражение «дорого» без ответа</span>
+    <span class="tag tag--hl" data-tag="2">Можно было предложить допуслугу</span>
+  </div>
+</section>
+
+<!-- PAINS: annotated protocol -->
+<section class="sec pains" id="pains">
+  <div class="pains__head">
+    <h2 class="sec__title" data-reveal>Протокол потерь: шесть мест, где продажа уходит</h2>
+    <p class="sec__lead" data-reveal>Знакомые ситуации из отделов продаж и записи. Руководитель физически не успевает услышать их все, а ИИ слушает каждый звонок.</p>
+  </div>
+  <div class="proto">
+    <article class="sheet" data-reveal>
+      <div class="sheet__body">
+        <p><span class="who">Клиент</span> Сколько это стоит?</p>
+        <p><span class="who">Менеджер</span> <mark class="pen" data-pen>От сорока тысяч</mark>. Отправить коммерческое?</p>
+      </div>
+      <p class="sheet__note"><b>Заявки есть, продаж нет.</b> Цену назвали раньше, чем поняли задачу. Потребность не выявлена, клиент ушёл сравнивать.</p>
+    </article>
+    <article class="sheet sheet--shift" data-reveal>
+      <div class="sheet__body">
+        <p><span class="who">Клиент</span> Дороговато. Я подумаю.</p>
+        <p><span class="who">Менеджер</span> <mark class="pen" data-pen>Хорошо, думайте.</mark></p>
+      </div>
+      <p class="sheet__note"><b>Конверсия падает, реклама дорожает.</b> Возражение не отработано, следующего шага нет. Таких разговоров много, а причина остаётся невидимой.</p>
+    </article>
+    <article class="sheet" data-reveal>
+      <div class="sheet__body">
+        <p><span class="who">Руководитель</span> Сорок звонков в день. Послушал три.</p>
+        <p><span class="who">Руководитель</span> <mark class="hl" data-hl>Остальные — на веру.</mark></p>
+      </div>
+      <p class="sheet__note"><b>Нет контроля.</b> Руководитель не успевает разбирать звонки, находить ошибки и давать обратную связь вовремя.</p>
+    </article>
+    <article class="sheet sheet--shift" data-reveal>
+      <div class="sheet__body">
+        <p><span class="who">Тренер</span> Скрипт отработали, всем спасибо.</p>
+        <p><span class="who">Через две недели</span> <mark class="pen" data-pen>Всё как раньше.</mark></p>
+      </div>
+      <p class="sheet__note"><b>Тренинги не приживаются.</b> Скрипты и обучение есть, но сотрудники возвращаются к старым привычкам, а проверить это нечем.</p>
+    </article>
+    <article class="sheet" data-reveal>
+      <div class="sheet__body">
+        <p><span class="who">Клиент</span> Беру. Это всё, спасибо.</p>
+        <p><span class="who">Менеджер</span> <mark class="hl" data-hl>Оформляю. До свидания.</mark></p>
+      </div>
+      <p class="sheet__note"><b>Допродажи не происходят.</b> Средний чек не растёт, заинтересованных клиентов никто не возвращает.</p>
+    </article>
+    <article class="sheet sheet--shift" data-reveal>
+      <div class="sheet__body">
+        <p><span class="who">Карточка в CRM</span> Комментарий: «звонил».</p>
+        <p><span class="who">Руководитель</span> <mark class="pen" data-pen>Что было на самом деле?</mark></p>
+      </div>
+      <p class="sheet__note"><b>Реальной картины нет.</b> CRM заполняют плохо, причины отказов не фиксируются, решения принимаются вслепую.</p>
+    </article>
+  </div>
+</section>
+
+<!-- HOW: pinned scene -->
+<section class="how" id="how">
+  <div class="how__intro">
+    <h2 class="sec__title" data-reveal>Найти возможность, подсказать действие, внедрить, измерить</h2>
+    <p class="sec__lead" data-reveal>Не просто речевая аналитика, а система ежедневного улучшения продаж. Вот один звонок в клинику и то, что с ним происходит.</p>
+  </div>
+  <div class="how__track" id="howTrack">
+    <div class="how__sticky">
+      <div class="how__grid">
+        <div class="call" id="call" aria-label="Пример звонка">
+          <div class="call__bar">
+            <span class="call__rec"></span>
+            <p>Звонок в клинику, запись на чистку зубов</p>
+            <div class="call__wave" id="callWave" aria-hidden="true"></div>
+          </div>
+          <div class="call__text">
+            <p><span class="who">Клиент</span> Здравствуйте, хочу узнать, сколько стоит чистка зубов.</p>
+            <p><span class="who">Администратор</span> <mark class="pen" data-mark="0">Чистка шесть пятьсот.</mark> Записать вас?</p>
+            <p><span class="who">Клиент</span> <mark class="hl" data-mark="1">Ой, дороговато.</mark> Посмотрю, что есть в других местах.</p>
+            <p><span class="who">Администратор</span> <mark class="pen" data-mark="2">Хорошо, будем ждать.</mark> До свидания.</p>
+          </div>
+        </div>
+        <div class="panes" id="panes">
+          <div class="pane is-on" data-pane="0">
+            <h3 class="pane__title">Нашли, где потеряли</h3>
+            <ul class="finds">
+              <li><i class="dot dot--red"></i>Потребность не выяснена: цена названа первой фразой.</li>
+              <li><i class="dot dot--hl"></i>Возражение «дорого» услышано, но не отработано.</li>
+              <li><i class="dot dot--red"></i>Нет договорённости о следующем шаге.</li>
+            </ul>
+            <div class="grade"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="grade__track" cx="60" cy="60" r="52"/><circle class="grade__arc" cx="60" cy="60" r="52" pathLength="100"/></svg><p><b>4</b>из 10<span>оценка звонка по вашим критериям (пример)</span></p></div>
+          </div>
+          <div class="pane" data-pane="1">
+            <h3 class="pane__title">Подсказали, что сказать</h3>
+            <div class="note">
+              <p class="note__meta">Telegram · сразу после звонка</p>
+              <p><b>Упущена запись.</b> Администратор Анна, 14:32.</p>
+              <p class="note__say">Что сказать при перезвоне: «Понимаю, сравнивать нормально. Что для вас важнее в чистке, цена или результат? Давайте запишу вас на удобное время, врач ответит на вопросы».</p>
+            </div>
+            <ul class="chips"><li>Telegram</li><li>MAX</li><li>CRM</li></ul>
+            <p class="pane__aside">Уведомления о потерях, допродажах и ошибках приходят туда, где вы уже работаете.</p>
+          </div>
+          <div class="pane" data-pane="2">
+            <h3 class="pane__title">Внедрили и проверяем применение</h3>
+            <div class="trend">
+              <p class="trend__row"><span>Выясняет потребность</span><i class="bars" data-bars="2,3,5,6,8"></i></p>
+              <p class="trend__row"><span>Отрабатывает «дорого»</span><i class="bars" data-bars="1,2,4,5,7"></i></p>
+              <p class="trend__row"><span>Называет следующий шаг</span><i class="bars" data-bars="3,3,5,7,9"></i></p>
+            </div>
+            <p class="pane__aside">Пример: пять недель после внедрения. Видно, кто применяет рекомендации, а кто вернулся к старым привычкам.</p>
+          </div>
+          <div class="pane" data-pane="3">
+            <h3 class="pane__title">Измерили результат</h3>
+            <p class="big">+37%</p>
+            <p class="big__cap">успешность записи в сети ветеринарных клиник после анализа звонков и внедрения рекомендаций</p>
+            <p class="pane__aside">Дальше цикл повторяется: следующая возможность, следующее действие.</p>
+          </div>
+        </div>
+      </div>
+      <ol class="how__steps" id="howSteps" aria-label="Этапы">
+        <li class="is-on">Найти</li><li>Подсказать</li><li>Внедрить</li><li>Измерить</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="sec results" id="results">
+  <h2 class="sec__title" data-reveal>Что изменилось у клиентов</h2>
+  <div class="mosaic">
+    <div class="m m--xl" data-reveal>
+      <p class="m__num"><span data-target="50">50</span>%</p>
+      <p class="m__txt"><b>Строительные материалы.</b> Продажи менеджеров выросли за месяц. Оценка качества лидов показала, что лиды стали хуже, и рекламу быстро перенастроили.</p>
+    </div>
+    <div class="m m--l" data-reveal>
+      <p class="m__num"><span data-target="37">37</span>%</p>
+      <p class="m__txt"><b>Сеть ветеринарных клиник.</b> Рост успешности записи после анализа звонков и внедрения рекомендаций.</p>
+    </div>
+    <div class="m m--m" data-reveal>
+      <p class="m__num">+21%</p>
+      <p class="m__txt"><b>Доставка воды.</b> Средний чек.</p>
+    </div>
+    <div class="m m--s" data-reveal>
+      <p class="m__num">+13,1%</p>
+      <p class="m__txt"><b>Доставка воды.</b> Из лида в первый заказ.</p>
+    </div>
+    <div class="m m--s" data-reveal>
+      <p class="m__num">+17,1%</p>
+      <p class="m__txt"><b>Доставка воды.</b> Из первого заказа во второй.</p>
+    </div>
+    <div class="m m--m m--paper" data-reveal>
+      <p class="m__num">~10%</p>
+      <p class="m__txt"><b>Времени менеджеров</b> экономит автозаполнение CRM и автоматизация части процессов.</p>
+    </div>
+  </div>
+  <p class="results__note" data-reveal>Результат сильно зависит от качества внедрения. Поэтому мы сами разрабатываем критерии анализа и план внедрения под приоритетные показатели вашего бизнеса.</p>
+</section>
+
+<!-- MAP OF 316 -->
+<section class="sec map" id="map">
+  <div class="map__head">
+    <h2 class="sec__title" data-reveal>316 способов применить ИИ для роста продаж. Какие нужны вам?</h2>
+    <p class="sec__lead" data-reveal>Выберите сферу и главную задачу. На карте отметится то, с чего мы обычно начинаем. Точный список и расчёт эффекта подберём на бесплатном разборе.</p>
+  </div>
+  <div class="map__body">
+    <form class="picker" id="picker" aria-label="Подбор механик">
+      <fieldset>
+        <legend>Ваша сфера</legend>
+        <div class="opts" id="optInd"></div>
+      </fieldset>
+      <fieldset>
+        <legend>Главная задача</legend>
+        <div class="opts" id="optTask"></div>
+      </fieldset>
+    </form>
+    <div class="map__view">
+      <div class="grid316" id="grid316" role="img" aria-label="Карта из 316 механик роста продаж, подходящие отмечены цветом"></div>
+      <div class="map__out" id="mapOut" aria-live="polite">
+        <h3 id="mapTitle">С чего начать</h3>
+        <ul id="mapList"></ul>
+        <p class="map__ctx" id="mapCtx"></p>
+        <a class="btn btn--small" href="#contact" id="mapGo"><span>Разобрать мои механики на Zoom</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO -->
+<section class="sec who-fit" id="who">
+  <h2 class="sec__title" data-reveal>Кому подходит</h2>
+  <div class="fit">
+    <p class="fit__big" data-reveal>Компаниям, где продажу делает разговор: клиника, производство и опт, мебель и стройка, юристы и консалтинг, онлайн-образование, доставка воды, контакт-центры, автосервисы.</p>
+    <ul class="fit__list">
+      <li data-reveal><b>От 5 сотрудников</b> регулярно общаются с клиентами по телефону. Оптимально 10–100. Если вас 3–4, обсудим индивидуально.</li>
+      <li data-reveal><b>Записи звонков есть</b> или вы готовы их организовать.</li>
+      <li data-reveal><b>Речь не только о продажах.</b> Администраторы клиник, операторы записи, менеджеры сопровождения: везде, где от качества общения зависит выручка.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- PRICE -->
+<section class="sec price" id="price">
+  <h2 class="sec__title" data-reveal>Стоимость без сюрпризов</h2>
+  <div class="price__grid">
+    <div class="price__one" data-reveal>
+      <p class="price__num">75 000 ₽</p>
+      <p class="price__cap">индивидуальное внедрение, один раз</p>
+      <ul class="price__incl">
+        <li>Анализ ваших бизнес-процессов</li>
+        <li>Индивидуальные критерии оценки разговоров</li>
+        <li>Настройка ИИ и интеграции</li>
+        <li>Уведомления в Telegram, MAX и CRM</li>
+        <li>Обучение сотрудников</li>
+        <li>Сопровождение внедрения механик роста в первый месяц</li>
+      </ul>
+    </div>
+    <div class="price__two" data-reveal>
+      <p class="price__num price__num--s">10 000 ₽ <span>в месяц</span> + 5–6 ₽ за минуту разговора</p>
+      <form class="calc" id="calc" onsubmit="return false">
+        <label class="calc__f"><span>Минут разговоров в месяц</span>
+          <input type="range" id="calcMin" min="1000" max="60000" step="500" value="12000">
+          <output id="calcMinOut">12 000</output>
+        </label>
+        <p class="calc__res">Выйдет <b id="calcLo">70 000</b>–<b id="calcHi">82 000</b> ₽ в месяц</p>
+        <label class="calc__f calc__f--n"><span>Средний чек вашей сделки, ₽</span>
+          <input type="number" id="calcChk" min="1000" step="1000" value="50000" inputmode="numeric">
+        </label>
+        <p class="calc__be" id="calcBe"></p>
+      </form>
+      <div class="pilot" data-reveal>
+        <p><b>Бесплатный пилот.</b> Если у вас больше 10 000 минут разговоров в месяц, можно запустить пилот на одной группе сотрудников без оплаты. Условия согласуем лично.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ZOOM -->
+<section class="sec zoom" id="zoom">
+  <h2 class="sec__title" data-reveal>Бесплатный Zoom-разбор: 30–40 минут</h2>
+  <ol class="zsteps">
+    <li data-reveal><b>Подберём способы.</b> Из 316 механик выберем самые актуальные для вашей компании.</li>
+    <li data-reveal><b>Покажем сервис.</b> Как EvGrade Tech выглядит в работе, на реальном примере.</li>
+    <li data-reveal><b>Разберём ваши звонки.</b> Несколько записей, если пришлёте их заранее.</li>
+    <li data-reveal><b>Посчитаем эффект.</b> Ожидаемый экономический результат и срок окупаемости.</li>
+  </ol>
+</section>
+
+<!-- FAQ -->
+<section class="sec faq" id="faq">
+  <h2 class="sec__title" data-reveal>Частые вопросы</h2>
+  <div class="faq__list" data-reveal>
+    <details><summary>У нас нет записи звонков. Нам подойдёт?</summary><div class="faq__a"><p>Запись нужна обязательно, но её можно организовать. На разборе подскажем, как это сделать в вашей телефонии.</p></div></details>
+    <details><summary>Мы небольшая команда, три-четыре человека.</summary><div class="faq__a"><p>Такие компании рассматриваем индивидуально: смотрим на объём обращений и влияние разговоров на выручку.</p></div></details>
+    <details><summary>Чем это отличается от обычной речевой аналитики?</summary><div class="faq__a"><p>Мы не только оцениваем разговор. Критерии настраиваются под ваш бизнес, менеджеру приходят конкретные рекомендации, а команда внедрения помогает применить механики роста и проверяет, что изменилось.</p></div></details>
+    <details><summary>Анализируются только звонки?</summary><div class="faq__a"><p>Звонки и переписки с клиентами. Заодно сервис оценивает качество лидов из разных источников и причины отказов.</p></div></details>
+    <details><summary>Сколько времени это займёт у менеджеров?</summary><div class="faq__a"><p>Минимум: сервис сам заполняет CRM и берёт на себя часть процессов, поэтому в среднем экономит около 10% времени.</p></div></details>
+    <details><summary>Как быстро будет результат?</summary><div class="faq__a"><p>Цикл сделки у нас обычно 2–6 недель. Результат зависит от качества внедрения: на разборе назовём приоритетные показатели и оценим срок под вашу ситуацию.</p></div></details>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec contact" id="contact">
+  <div class="contact__text">
+    <h2 class="sec__title" data-reveal>Запишитесь на бесплатный разбор</h2>
+    <p class="sec__lead" data-reveal>Оставьте контакт. Специалист EvGrade Tech свяжется с вами, договорится о времени Zoom и попросит прислать несколько записей звонков, если они есть.</p>
+    <p class="contact__site" data-reveal>Сайт сервиса: <a href="https://evgrade.tech" target="_blank" rel="noopener">evgrade.tech</a></p>
+  </div>
+  <form class="form" id="leadForm" data-reveal novalidate>
+    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+    <input type="hidden" name="picked" id="pickedField">
+    <label class="field"><span>Как к вам обращаться</span><input type="text" name="name" autocomplete="given-name" required></label>
+    <label class="field"><span>Телефон или Telegram</span><input type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="+7" required></label>
+    <label class="field"><span>Ваша должность и компания</span><input type="text" name="company" autocomplete="organization"></label>
+    <label class="field"><span>Сколько сотрудников общаются с клиентами по телефону</span>
+      <select name="staff"><option>3–4</option><option selected>5–10</option><option>10–100</option><option>Больше 100</option></select>
+    </label>
+    <label class="field"><span>Записи звонков</span>
+      <select name="records"><option>Записываем звонки</option><option>Нет, но готовы организовать</option><option>Пока не знаю</option></select>
+    </label>
+    <label class="check"><input type="checkbox" name="consent" required><span>Согласие на обработку данных по <a href="privacy.html">политике конфиденциальности</a></span></label>
+    <button class="btn btn--wide" type="submit"><span>Записаться на разбор</span></button>
+    <p class="form__note" id="formNote" role="status"></p>
+  </form>
+</section>
+
+</main>
+
+<footer class="footer">
+  <p class="footer__name" aria-hidden="true">EvGrade Tech</p>
+  <div class="footer__meta">
+    <p>ИИ-сервис для увеличения продаж. Резидент «Сколково».</p>
+    <p><a href="privacy.html">Политика конфиденциальности</a> · <a href="https://evgrade.tech" target="_blank" rel="noopener">evgrade.tech</a></p>
+    <p>© <span id="year">2026</span></p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script type="module" src="hero3d.js"></script>
+</body>
+</html>
