@@ -27,7 +27,6 @@
       <a href="#how">Как работает</a>
       <a href="#results">Результаты</a>
       <a href="#map">316 механик</a>
-      <a href="#price">Стоимость</a>
       <a href="#faq">Вопросы</a>
     </nav>
     <a class="btn btn--small header__cta" href="#contact"><span>Бесплатный разбор</span></a>
@@ -249,42 +248,6 @@
   </div>
 </section>
 
-<!-- PRICE -->
-<section class="sec price" id="price">
-  <h2 class="sec__title" data-reveal>Стоимость без сюрпризов</h2>
-  <div class="price__grid">
-    <div class="price__one" data-reveal>
-      <p class="price__num">75 000 ₽</p>
-      <p class="price__cap">индивидуальное внедрение, один раз</p>
-      <ul class="price__incl">
-        <li>Анализ ваших бизнес-процессов</li>
-        <li>Индивидуальные критерии оценки разговоров</li>
-        <li>Настройка ИИ и интеграции</li>
-        <li>Уведомления в Telegram, MAX и CRM</li>
-        <li>Обучение сотрудников</li>
-        <li>Сопровождение внедрения механик роста в первый месяц</li>
-      </ul>
-    </div>
-    <div class="price__two" data-reveal>
-      <p class="price__num price__num--s">10 000 ₽ <span>в месяц</span> + 5–6 ₽ за минуту разговора</p>
-      <form class="calc" id="calc" onsubmit="return false">
-        <label class="calc__f"><span>Минут разговоров в месяц</span>
-          <input type="range" id="calcMin" min="1000" max="60000" step="500" value="12000">
-          <output id="calcMinOut">12 000</output>
-        </label>
-        <p class="calc__res">Выйдет <b id="calcLo">70 000</b>–<b id="calcHi">82 000</b> ₽ в месяц</p>
-        <label class="calc__f calc__f--n"><span>Средний чек вашей сделки, ₽</span>
-          <input type="number" id="calcChk" min="1000" step="1000" value="50000" inputmode="numeric">
-        </label>
-        <p class="calc__be" id="calcBe"></p>
-      </form>
-      <div class="pilot" data-reveal>
-        <p><b>Бесплатный пилот.</b> Если у вас больше 10 000 минут разговоров в месяц, можно запустить пилот на одной группе сотрудников без оплаты. Условия согласуем лично.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ZOOM -->
 <section class="sec zoom" id="zoom">
   <h2 class="sec__title" data-reveal>Бесплатный Zoom-разбор: 30–40 минут</h2>
@@ -319,15 +282,8 @@
   <form class="form" id="leadForm" data-reveal novalidate>
     <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
     <input type="hidden" name="picked" id="pickedField">
-    <label class="field"><span>Как к вам обращаться</span><input type="text" name="name" autocomplete="given-name" required></label>
+    <label class="field"><span>Как к вам обращаться (необязательно)</span><input type="text" name="name" autocomplete="given-name"></label>
     <label class="field"><span>Телефон или Telegram</span><input type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="+7" required></label>
-    <label class="field"><span>Ваша должность и компания</span><input type="text" name="company" autocomplete="organization"></label>
-    <label class="field"><span>Сколько сотрудников общаются с клиентами по телефону</span>
-      <select name="staff"><option>3–4</option><option selected>5–10</option><option>10–100</option><option>Больше 100</option></select>
-    </label>
-    <label class="field"><span>Записи звонков</span>
-      <select name="records"><option>Записываем звонки</option><option>Нет, но готовы организовать</option><option>Пока не знаю</option></select>
-    </label>
     <label class="check"><input type="checkbox" name="consent" required><span>Согласие на обработку данных по <a href="privacy.html">политике конфиденциальности</a></span></label>
     <button class="btn btn--wide" type="submit"><span>Записаться на разбор</span></button>
     <p class="form__note" id="formNote" role="status"></p>

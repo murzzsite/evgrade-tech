@@ -246,7 +246,7 @@ const LEAD_ENDPOINT = 'https://lead-relay.leestygpt.workers.dev/lead/UASUQAYNUK'
     const payload = {};
     new FormData(form).forEach((v, k) => { payload[k] = v; });
     if (payload._gotcha) return;
-    if (!payload.name || !payload.phone) { note.textContent = 'Заполните имя и телефон или Telegram'; return; }
+    if (!payload.phone) { note.textContent = 'Укажите телефон или Telegram для связи'; return; }
     if (!form.consent.checked) { note.textContent = 'Нужно согласие на обработку данных'; return; }
     delete payload.consent;
     btn.disabled = true; btn.firstChild.textContent = 'Отправляем…'; note.textContent = '';
